@@ -55,10 +55,6 @@ const pairSizes = '(min-width: 1100px) 36rem, (min-width: 760px) 45vw, 78vw';
             {group.layout === 'feature' ? (
               <div class="feature">
                 <BagCard bag={group.bags[0]} sizes="(min-width: 900px) 40rem, 92vw" feature />
-                <figure class="feature-detail" aria-hidden="true">
-                  <Picture src={group.bags[0].image} alt="" widths={[700, 1100]} sizes="38rem" formats={['avif', 'webp']} loading="lazy" />
-                  <figcaption>The matching pouch</figcaption>
-                </figure>
               </div>
             ) : (
               <div class="row" data-row>
@@ -414,17 +410,16 @@ const pairSizes = '(min-width: 1100px) 36rem, (min-width: 760px) 45vw, 78vw';
   }
 
   .feature { padding-top: 0.5rem; position: relative; }
-  .feature-detail { display: none; }
   @media (min-width: 900px) {
     .feature :global(.bag) {
       grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-      align-items: end;
+      align-items: start;
       gap: 0;
     }
     .feature :global(.bag-body) {
       gap: 1.25rem;
       margin-left: -3.5rem;
-      padding: 2.25rem 0 2.25rem 0;
+      padding: 2.5rem 0 0;
       position: relative;
       z-index: 1;
     }
@@ -433,29 +428,6 @@ const pairSizes = '(min-width: 1100px) 36rem, (min-width: 760px) 45vw, 78vw';
     .feature :global(.bag-meta) { width: auto; margin-left: 5.5rem; gap: 1.5rem; }
     .feature :global(.bag-price) { font-size: 2rem; }
     .feature :global(.buy) { margin-left: 0; }
-    .feature-detail figcaption { font-size: 0.9rem; color: var(--ink-soft); }
-  }
-  /* The pouch detail shares the text column's left edge (2rem in from the photo). Wide screens only. */
-  @media (min-width: 1200px) {
-    .feature-detail {
-      display: grid;
-      gap: 0.6rem;
-      position: absolute;
-      top: 0.5rem;
-      left: calc(58.333% + 2rem);
-      width: min(calc(41.667% - 2rem), 26rem);
-      margin: 0;
-    }
-    .feature-detail :global(picture) { display: block; overflow: hidden; border-radius: 4px; aspect-ratio: 1; }
-    .feature-detail :global(img) {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: 50% 100%;
-      /* zoom in on the pouch at the bottom of the photo */
-      scale: 1.75;
-      transform-origin: 54% 100%;
-    }
   }
 
   /* ---------- About us ---------- */
