@@ -1,6 +1,6 @@
 // Dev-only: full-page screenshots for review. Usage: node scripts/capture.mjs [url] [outdir]
 import { chromium } from 'playwright';
-const url = process.argv[2] || 'http://localhost:4329/';
+const url = process.argv[2] || 'http://localhost:4329/thelia/';
 const out = process.argv[3] || '.impeccable/review';
 const browser = await chromium.launch();
 for (const [name, viewport] of [['desktop', { width: 1440, height: 900 }], ['mobile', { width: 390, height: 844 }]]) {
