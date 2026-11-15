@@ -1,0 +1,611 @@
+---
+import { Picture } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import BagCard from '../components/BagCard.astro';
+import { groups } from '../data/bags';
+import { hero, storyIntro, storyRest, values, maker } from '../data/content';
+import { catalogue } from '../data/catalogue';
+import cornfield from '../assets/catalogue/cornfield-walk.jpg';
+import market from '../assets/catalogue/market.jpg';
+
+const rowSizes = '(min-width: 1100px) 24rem, (min-width: 760px) 30vw, 78vw';
+const pairSizes = '(min-width: 1100px) 36rem, (min-width: 760px) 45vw, 78vw';
+---
+<Base
+  title="Thelia: handmade crochet bags"
+  description="At Thelia every piece is handmade with love and attention to detail. Crochet clutches, minis and shoulder bags, made by hand in Canada."
+>
+  <Header />
+
+  <main>
+    <!-- Opening: her logo as the background, the swing tag hanging in front -->
+    <section class="hero" aria-labelledby="hero-title">
+      <svg class="hero-watermark" aria-hidden="true"><use href="#logo-full" /></svg>
+      <div class="tag-rig" data-tag-rig>
+        <svg class="tag-string" viewBox="0 0 40 200" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M20 0 V200" />
+        </svg>
+        <div class="tag on-tag">
+          <svg class="tag-logo" role="img" aria-label="Thelia logo"><use href="#logo-full" /></svg>
+          <h1 id="hero-title">{hero.headline}</h1>
+          <p class="tag-line">{hero.line}</p>
+          <a class="woven tag-cta" href="#shop">Shop the bags</a>
+          <p class="tag-foot">Handmade in Canada</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shop -->
+    <section class="shop" id="shop" aria-labelledby="shop-title">
+      <div class="wrap">
+        <div class="shop-head">
+          <h2 id="shop-title">The bags</h2>
+          <p>Each one crocheted by hand. Choose a bag, tap Buy, and add your shipping address at checkout.</p>
+        </div>
+
+        {groups.map((group) => (
+          <section class:list={['group', `group-${group.layout}`]} aria-labelledby={group.layout === 'feature' ? group.bags[0].id + '-name' : `g-${group.id}`}>
+            {group.layout !== 'feature' && (
+              <header class="group-head">
+                <h3 id={`g-${group.id}`}>{group.title}</h3>
+              </header>
+            )}
+            {group.layout === 'feature' ? (
+              <div class="feature">
+                <BagCard bag={group.bags[0]} sizes="(min-width: 900px) 40rem, 92vw" feature />
+                <figure class="feature-detail" aria-hidden="true">
+                  <Picture src={group.bags[0].image} alt="" widths={[700, 1100]} sizes="38rem" formats={['avif', 'webp']} loading="lazy" />
+                  <figcaption>The matching pouch</figcaption>
+                </figure>
+              </div>
+            ) : (
+              <div class="row" data-row>
+                {group.bags.map((bag) => (
+                  <BagCard bag={bag} sizes={group.layout === 'pair' ? pairSizes : rowSizes} />
+                ))}
+              </div>
+            )}
+          </section>
+        ))}
+      </div>
+    </section>
+
+    <!-- About us -->
+    <section class="story on-tag" id="story" aria-labelledby="story-title">
+      <div class="wrap story-grid">
+        <figure class="story-photo">
+          <Picture src={cornfield} alt="Walking through a corn maze in autumn with a burgundy Thelia bag at the hip" widths={[420, 700, 1000]} sizes="(min-width: 900px) 30rem, 90vw" formats={['avif', 'webp']} loading="lazy" />
+        </figure>
+        <div class="story-text">
+          <h2 id="story-title">How Thelia started</h2>
+          {storyIntro.map((p) => <p>{p}</p>)}
+          <div class="story-more" id="story-more" data-story-more>
+            <div class="story-more-inner">
+              {storyRest.map((p) => <p>{p}</p>)}
+            </div>
+          </div>
+          <button class="woven story-toggle" type="button" aria-expanded="false" aria-controls="story-more" data-story-toggle>
+            <span data-label>Read my story</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission and values -->
+    <section class="values" aria-labelledby="values-title">
+      <div class="wrap">
+        <h2 id="values-title">Mission and values</h2>
+        <dl class="values-list">
+          {values.map((v) => (
+            <div class="value">
+              <dt>{v.name}</dt>
+              <dd>{v.text}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+
+    <!-- Meet the maker -->
+    <section class="maker" aria-labelledby="maker-title">
+      <div class="wrap maker-grid">
+        <div class="maker-text">
+          <h2 id="maker-title">Meet the maker</h2>
+          {maker.map((p) => <p>{p}</p>)}
+        </div>
+        <figure class="maker-photo">
+          <Picture src={market} alt="A table covered in Thelia bags at a market" widths={[420, 700, 1000]} sizes="(min-width: 900px) 28rem, 90vw" formats={['avif', 'webp']} loading="lazy" />
+        </figure>
+      </div>
+    </section>
+
+    <!-- Catalogue -->
+    <section class="catalogue" id="catalogue" aria-labelledby="catalogue-title">
+      <div class="wrap">
+        <div class="catalogue-head">
+          <h2 id="catalogue-title">Catalogue</h2>
+          <p>More pieces, and the bags out in the world. Tap a photo to see it larger.</p>
+        </div>
+        <ul class="catalogue-grid" data-catalogue>
+          {catalogue.map((item, i) => (
+            <li class:list={['cat-item', { 'is-cutout': item.cutout }]}>
+              <button type="button" class="cat-open" data-index={i} aria-label={`View larger: ${item.alt}`}>
+                <Picture src={item.image} alt={item.alt} widths={item.cutout ? [450] : [360, 620, 900]} sizes="(min-width: 1100px) 18rem, (min-width: 640px) 30vw, 46vw" formats={['avif', 'webp']} loading="lazy" decoding="async" />
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="viewer" data-viewer aria-label="Photo viewer">
+    <button type="button" class="viewer-close" data-close aria-label="Close">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+    </button>
+    <button type="button" class="viewer-nav viewer-prev" data-prev aria-label="Previous photo">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" /></svg>
+    </button>
+    <figure class="viewer-figure">
+      <figcaption data-viewer-caption></figcaption>
+    </figure>
+    <button type="button" class="viewer-nav viewer-next" data-next aria-label="Next photo">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" /></svg>
+    </button>
+  </dialog>
+
+  <Footer />
+</Base>
+
+<script>
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Header hairline once the page scrolls.
+  const onScrollClass = () => document.documentElement.classList.toggle('scrolled', window.scrollY > 8);
+  onScrollClass();
+  window.addEventListener('scroll', onScrollClass, { passive: true });
+
+  // The swing tag: a damped pendulum nudged by scroll speed and the pointer.
+  const rig = document.querySelector<HTMLElement>('[data-tag-rig]');
+  if (rig && !reduce) {
+    let angle = 0, velocity = 0, lastY = window.scrollY, pointer = 0, running = false;
+    const step = () => {
+      const target = pointer;
+      velocity += (target - angle) * 0.02;
+      velocity *= 0.94;
+      angle += velocity;
+      rig.style.setProperty('--swing', `${angle.toFixed(3)}deg`);
+      if (Math.abs(velocity) > 0.002 || Math.abs(target - angle) > 0.01) requestAnimationFrame(step);
+      else running = false;
+    };
+    const kick = () => { if (!running) { running = true; requestAnimationFrame(step); } };
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (y < window.innerHeight * 1.2) {
+        velocity += Math.max(-1.2, Math.min(1.2, (y - lastY) * 0.03));
+        kick();
+      }
+      lastY = y;
+    }, { passive: true });
+    window.addEventListener('pointermove', (e) => {
+      if (e.pointerType !== 'mouse') return;
+      pointer = ((e.clientX / window.innerWidth) - 0.5) * 3.2;
+      kick();
+    }, { passive: true });
+    // A small settle swing on load, so the tag reads as hanging.
+    velocity = 0.9; kick();
+  }
+
+  // Read my story: expands in place.
+  const toggle = document.querySelector<HTMLButtonElement>('[data-story-toggle]');
+  const more = document.querySelector<HTMLElement>('[data-story-more]');
+  toggle?.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    more?.classList.toggle('is-open', !open);
+    const label = toggle.querySelector('[data-label]');
+    if (label) label.textContent = open ? 'Read my story' : 'Show less';
+    if (open) document.getElementById('story')?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
+  });
+
+  // Catalogue viewer.
+  const viewer = document.querySelector<HTMLDialogElement>('[data-viewer]');
+  // The viewer's image element is created on first use, so no empty image ships in the HTML.
+  const vImg = document.createElement('img');
+  document.querySelector('.viewer-figure')?.prepend(vImg);
+  const vCap = document.querySelector<HTMLElement>('[data-viewer-caption]');
+  const items = Array.from(document.querySelectorAll<HTMLButtonElement>('.cat-open'));
+  let current = 0;
+  const show = (i: number) => {
+    current = (i + items.length) % items.length;
+    const img = items[current].querySelector('img');
+    if (!img || !vCap) return;
+    // use the largest size Astro generated, not the thumbnail the grid loaded
+    const sources = img.srcset ? img.srcset.split(',').map((c) => c.trim().split(' ')[0]) : [];
+    vImg.src = sources[sources.length - 1] || img.currentSrc || img.src;
+    vImg.alt = img.alt;
+    vCap.textContent = img.alt;
+  };
+  let opener: HTMLElement | null = null;
+  items.forEach((btn, i) => btn.addEventListener('click', () => {
+    opener = btn; show(i); viewer?.showModal();
+  }));
+  viewer?.querySelector('[data-close]')?.addEventListener('click', () => viewer.close());
+  viewer?.querySelector('[data-prev]')?.addEventListener('click', () => show(current - 1));
+  viewer?.querySelector('[data-next]')?.addEventListener('click', () => show(current + 1));
+  viewer?.addEventListener('click', (e) => { if (e.target === viewer) viewer.close(); });
+  viewer?.addEventListener('close', () => opener?.focus());
+  viewer?.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') show(current + 1);
+    if (e.key === 'ArrowLeft') show(current - 1);
+  });
+  let touchX = 0;
+  viewer?.addEventListener('touchstart', (e) => { touchX = e.touches[0].clientX; }, { passive: true });
+  viewer?.addEventListener('touchend', (e) => {
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 50) show(current + (dx < 0 ? 1 : -1));
+  });
+</script>
+
+<style>
+  /* ---------- Opening ---------- */
+  .hero {
+    position: relative;
+    display: grid;
+    justify-items: center;
+    align-items: start;
+    overflow: hidden;
+    padding-bottom: clamp(1.25rem, 3vw, 2rem);
+  }
+  .hero-watermark {
+    position: absolute;
+    inset: 50% auto auto 50%;
+    width: min(140vw, 84rem);
+    aspect-ratio: 1370 / 1030;
+    translate: -50% -50%;
+    color: #efede7;
+    pointer-events: none;
+    -webkit-mask-image: linear-gradient(#000 25%, transparent 56%);
+    mask-image: linear-gradient(#000 25%, transparent 56%);
+  }
+  .tag-rig {
+    --swing: 0deg;
+    position: relative;
+    display: grid;
+    justify-items: center;
+    transform-origin: 50% 0;
+    rotate: var(--swing);
+    filter: drop-shadow(0 22px 28px rgb(20 20 20 / 0.22)) drop-shadow(0 4px 6px rgb(20 20 20 / 0.12));
+    will-change: rotate;
+  }
+  .tag-string {
+    position: relative;
+    z-index: 2;
+    width: 40px;
+    height: clamp(2.6rem, 6vh, 4.5rem);
+    overflow: visible;
+  }
+  .tag-string path {
+    stroke: var(--string);
+    stroke-width: 2.4;
+    fill: none;
+    vector-effect: non-scaling-stroke;
+  }
+  .tag {
+    position: relative;
+    width: clamp(17rem, 26vw, 23rem);
+    margin-top: -1.55rem;
+    padding: 3.1rem clamp(1.25rem, 2.5vw, 2rem) 1.4rem;
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    gap: 0.7rem;
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+      var(--tag);
+    color: var(--on-tag);
+    border-radius: 12px;
+    /* the punched hole the string runs through */
+    -webkit-mask: radial-gradient(circle at 50% 1.55rem, transparent 0.42rem, #000 0.47rem);
+    mask: radial-gradient(circle at 50% 1.55rem, transparent 0.42rem, #000 0.47rem);
+  }
+  .tag-logo { width: 58%; aspect-ratio: 1370 / 1030; color: var(--on-tag); }
+  .tag h1 {
+    font-size: clamp(1.7rem, 2.2vw, 1.95rem);
+    margin-top: 0.15rem;
+  }
+  .tag-line {
+    color: var(--on-tag-soft);
+    font-size: 0.94rem;
+    line-height: 1.45;
+    max-width: 26ch;
+  }
+  .tag-cta {
+    margin-top: 0.4rem;
+    font-size: 1.05rem;
+    padding: 0.7em 1.8em;
+    text-decoration: none;
+    transition: translate 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+  }
+  .tag-cta:hover { translate: 0 -2px; }
+  .tag-foot {
+    margin-top: 0.5rem;
+    padding-top: 0.75rem;
+    width: 100%;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--on-tag-soft);
+    position: relative;
+  }
+  .tag-foot::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 1.5px;
+    background: var(--stitch);
+    color: color-mix(in srgb, var(--on-tag) 28%, transparent);
+  }
+
+  /* ---------- Shop ---------- */
+  .shop { padding-block: 0 clamp(4rem, 9vw, 7rem); }
+  .shop-head {
+    display: grid;
+    gap: 0.4rem;
+    margin-bottom: clamp(1.1rem, 2.5vw, 1.75rem);
+  }
+  .shop-head h2 { font-size: clamp(2.2rem, 4.2vw, 3.4rem); }
+  .shop-head p { color: var(--ink-soft); max-width: 46ch; font-size: 0.97rem; }
+  @media (min-width: 900px) {
+    .shop-head { grid-template-columns: 1fr auto; align-items: end; }
+    .shop-head p { text-align: right; }
+  }
+
+  .group + .group { margin-top: clamp(3.5rem, 8vw, 6rem); }
+  .group-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 0.7rem;
+    margin-bottom: 1.1rem;
+    position: relative;
+  }
+  .group-head::after {
+    content: '';
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 1.5px;
+    background: var(--stitch);
+    color: color-mix(in srgb, var(--ink) 35%, transparent);
+  }
+  .group-head h3 { font-size: clamp(1.5rem, 2.6vw, 2rem); }
+
+  /* Phones: each group is a swipeable row, the next bag peeking in. */
+  .row {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 78%;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gutter);
+    margin-inline: calc(-1 * var(--gutter));
+    padding-inline: var(--gutter);
+    padding-bottom: 0.5rem;
+    scrollbar-width: none;
+  }
+  .row::-webkit-scrollbar { display: none; }
+  .row > :global(*) { scroll-snap-align: start; }
+  @media (min-width: 760px) {
+    .row {
+      grid-auto-flow: row;
+      grid-auto-columns: auto;
+      overflow: visible;
+      margin-inline: 0;
+      padding-inline: 0;
+      gap: clamp(1.25rem, 3vw, 2.5rem);
+    }
+    .group-pair .row { grid-template-columns: repeat(2, 1fr); }
+    .group-pair :global(.bag-photo) { aspect-ratio: 4 / 3; }
+    .group-trio .row { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .feature { padding-top: 0.5rem; position: relative; }
+  .feature-detail { display: none; }
+  @media (min-width: 900px) {
+    .feature :global(.bag) {
+      grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+      align-items: end;
+      gap: 0;
+    }
+    .feature :global(.bag-body) {
+      gap: 1.25rem;
+      margin-left: -3.5rem;
+      padding: 2.25rem 0 2.25rem 0;
+      position: relative;
+      z-index: 1;
+    }
+    .feature :global(.bag-name) { margin: 0; font-size: clamp(2rem, 3.4vw, 3rem); rotate: -1.5deg; }
+    .feature :global(.bag-note) { margin-left: 5.5rem; font-family: var(--display); font-size: clamp(1.35rem, 2vw, 1.7rem); line-height: 1.3; max-width: 18ch; color: var(--ink); }
+    .feature :global(.bag-meta) { width: auto; margin-left: 5.5rem; gap: 1.5rem; }
+    .feature :global(.bag-price) { font-size: 2rem; }
+    .feature :global(.buy) { margin-left: 0; }
+    .feature-detail figcaption { font-size: 0.9rem; color: var(--ink-soft); }
+  }
+  /* The pouch detail shares the text column's left edge (2rem in from the photo). Wide screens only. */
+  @media (min-width: 1200px) {
+    .feature-detail {
+      display: grid;
+      gap: 0.6rem;
+      position: absolute;
+      top: 0.5rem;
+      left: calc(58.333% + 2rem);
+      width: min(calc(41.667% - 2rem), 26rem);
+      margin: 0;
+    }
+    .feature-detail :global(picture) { display: block; overflow: hidden; border-radius: 4px; aspect-ratio: 1; }
+    .feature-detail :global(img) {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 100%;
+      /* zoom in on the pouch at the bottom of the photo */
+      scale: 1.75;
+      transform-origin: 54% 100%;
+    }
+  }
+
+  /* ---------- About us ---------- */
+  .story {
+    background: var(--tag);
+    color: var(--on-tag);
+    padding-block: clamp(4.5rem, 10vw, 8rem);
+  }
+  .story-grid {
+    display: grid;
+    gap: clamp(2rem, 5vw, 5rem);
+  }
+  @media (min-width: 900px) {
+    .story-grid { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); align-items: start; }
+    .story-photo { position: sticky; top: 6rem; }
+  }
+  .story-photo { margin: 0; }
+  .story-photo :global(img) { border-radius: 4px; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
+  .story-text { display: grid; gap: 1.15rem; max-width: 62ch; }
+  .story-text h2 { font-size: clamp(2.3rem, 5vw, 3.6rem); margin-bottom: 0.6rem; }
+  .story-text p { color: var(--on-tag-soft); }
+  .story-text > p:first-of-type { color: var(--on-tag); font-size: 1.18rem; line-height: 1.55; }
+  .story-more {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.7s var(--ease-out);
+  }
+  .story-more.is-open { grid-template-rows: 1fr; }
+  .story-more-inner { overflow: hidden; display: grid; gap: 1.15rem; }
+  .story-more:not(.is-open) .story-more-inner { visibility: hidden; transition: visibility 0s 0.7s; }
+  .story-toggle {
+    justify-self: start;
+    margin-top: 0.6rem;
+    font-size: 1.05rem;
+    border: 0;
+    cursor: pointer;
+    transition: translate 0.3s var(--ease-out);
+  }
+  .story-toggle:hover { translate: 0 -2px; }
+
+  /* ---------- Mission and values ---------- */
+  .values { padding-block: clamp(4.5rem, 10vw, 8rem) clamp(3rem, 6vw, 4rem); }
+  .values h2 { font-size: clamp(2.3rem, 5vw, 3.6rem); margin-bottom: clamp(1.75rem, 4vw, 3rem); }
+  .values-list { margin: 0; }
+  .value {
+    display: grid;
+    gap: 0.5rem;
+    padding-block: 1.6rem;
+    position: relative;
+  }
+  .value::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 1.5px;
+    background: var(--stitch);
+    color: color-mix(in srgb, var(--ink) 30%, transparent);
+  }
+  .value dt { font-family: var(--display); font-size: clamp(1.45rem, 2.6vw, 1.95rem); line-height: 1.15; }
+  .value dd { margin: 0; color: var(--ink-soft); max-width: 60ch; }
+  @media (min-width: 900px) {
+    .value { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 3rem; align-items: baseline; padding-block: 2rem; }
+  }
+
+  /* ---------- Meet the maker ---------- */
+  .maker { padding-block: clamp(3rem, 6vw, 4rem) clamp(4.5rem, 10vw, 8rem); }
+  .maker-grid { display: grid; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+  @media (min-width: 900px) { .maker-grid { grid-template-columns: 1.1fr 0.9fr; } }
+  .maker-text { display: grid; gap: 1.1rem; max-width: 56ch; }
+  .maker-text h2 { font-size: clamp(2.3rem, 5vw, 3.6rem); margin-bottom: 0.4rem; }
+  .maker-text p:first-of-type { font-size: 1.18rem; line-height: 1.55; }
+  .maker-text p + p { color: var(--ink-soft); }
+  .maker-photo { margin: 0; position: relative; }
+  .maker-photo :global(img) { border-radius: 4px; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+
+  /* ---------- Catalogue ---------- */
+  .catalogue {
+    padding-block: clamp(4rem, 9vw, 7rem);
+  }
+  .catalogue-head { display: grid; gap: 0.75rem; margin-bottom: clamp(1.75rem, 4vw, 3rem); }
+  .catalogue-head h2 { font-size: clamp(2.3rem, 5vw, 3.6rem); }
+  .catalogue-head p { color: var(--ink-soft); max-width: 48ch; }
+  .catalogue-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    columns: 2 10rem;
+    column-gap: clamp(0.6rem, 1.6vw, 1.1rem);
+  }
+  @media (min-width: 900px) { .catalogue-grid { columns: 4 14rem; } }
+  .cat-item { break-inside: avoid; margin-bottom: clamp(0.6rem, 1.6vw, 1.1rem); }
+  .cat-open {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: zoom-in;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .cat-open :global(img) { width: 100%; transition: transform 0.8s var(--ease-out), opacity 0.3s; }
+  .cat-open:hover :global(img) { transform: scale(1.03); }
+  .is-cutout .cat-open :global(img) { mix-blend-mode: multiply; }
+
+  /* ---------- Viewer ---------- */
+  .viewer {
+    width: 100vw;
+    height: 100dvh;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: rgb(14 14 14 / 0.94);
+    color: var(--on-tag);
+  }
+  .viewer[open] { display: grid; grid-template-columns: auto 1fr auto; align-items: center; animation: fade 0.35s var(--ease-out); }
+  .viewer::backdrop { background: transparent; }
+  @keyframes fade { from { opacity: 0; } }
+  .viewer-figure {
+    margin: 0;
+    display: grid;
+    justify-items: center;
+    gap: 0.9rem;
+    padding: 4rem 0.5rem 2rem;
+    max-height: 100dvh;
+  }
+  .viewer-figure img { max-height: calc(100dvh - 9rem); width: auto; max-width: 100%; border-radius: 4px; }
+  .viewer-figure figcaption { font-size: 0.9rem; color: var(--on-tag-soft); text-align: center; max-width: 50ch; }
+  .viewer button {
+    display: grid;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 999px;
+    border: 1px solid rgb(243 241 236 / 0.25);
+    background: rgb(243 241 236 / 0.06);
+    color: var(--on-tag);
+    cursor: pointer;
+    margin: 0.5rem;
+    transition: background-color 0.2s;
+  }
+  .viewer button:hover { background: rgb(243 241 236 / 0.16); }
+  .viewer button svg { width: 1.3rem; height: 1.3rem; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .viewer-close { position: absolute; top: 0.75rem; right: 0.75rem; }
+  @media (max-width: 640px) {
+    .viewer-nav { position: absolute; bottom: 1rem; }
+    .viewer-prev { left: 30%; }
+    .viewer-next { right: 30%; }
+    .viewer[open] { grid-template-columns: 1fr; }
+  }
+</style>

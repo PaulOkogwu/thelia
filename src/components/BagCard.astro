@@ -1,0 +1,141 @@
+---
+import { Picture } from 'astro:assets';
+import type { Bag } from '../data/bags';
+
+interface Props {
+  bag: Bag;
+  sizes: string;
+  feature?: boolean;
+}
+const { bag, sizes, feature = false } = Astro.props;
+const sold = bag.status === 'sold';
+const canBuy = !sold && bag.paymentLink;
+---
+<article class:list={['bag', { 'is-sold': sold, 'is-feature': feature }]} id={bag.id}>
+  <div class="bag-photo" style={bag.focus ? `--focus: ${bag.focus}` : undefined}>
+    <Picture
+      src={bag.image}
+      alt={bag.alt}
+      widths={feature ? [480, 800, 1200, 1600] : [360, 560, 800, 1100]}
+      sizes={sizes}
+      formats={['avif', 'webp']}
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
+  <div class="bag-body">
+    <h3 class="woven bag-name" id={`${bag.id}-name`}>{bag.name}</h3>
+    {bag.note && <p class="bag-note">{bag.note}</p>}
+    <div class="bag-meta">
+      <p class="bag-price"><span class="visually-hidden">Price </span>${bag.price}</p>
+      {canBuy && (
+        <a class="buy" href={bag.paymentLink} rel="noopener">
+          Buy<span class="visually-hidden"> {bag.name}</span>
+        </a>
+      )}
+      {!canBuy && (
+        <span class:list={['buy', 'buy-off', { 'buy-sold': sold }]} aria-disabled="true">
+          {sold ? 'Sold' : 'Coming soon'}<span class="visually-hidden"> {bag.name}</span>
+        </span>
+      )}
+    </div>
+  </div>
+</article>
+
+<style>
+  .bag {
+    position: relative;
+    display: grid;
+    grid-template-rows: auto 1fr;
+  }
+  .bag-photo {
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border-radius: 4px;
+    background: var(--label-edge);
+  }
+  .bag-photo :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: var(--focus, 50% 50%);
+    transition: transform 0.9s var(--ease-out), filter 0.4s var(--ease-out);
+  }
+  .bag:hover .bag-photo :global(img) { transform: scale(1.035); }
+
+  .bag-body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  /* The name is sewn on like a label, overlapping the photo's bottom edge. */
+  .bag-name {
+    font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+    margin-top: -1.35em;
+    margin-left: 0.85rem;
+    max-width: calc(100% - 1.7rem);
+    rotate: -1.2deg;
+    transition: rotate 0.5s var(--ease-out);
+  }
+  .bag:hover .bag-name { rotate: 0deg; }
+  .bag-note {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    max-width: 34ch;
+  }
+  .bag-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+  }
+  .bag-price {
+    font-family: var(--display);
+    font-size: 1.5rem;
+    line-height: 1;
+    font-variant-numeric: lining-nums;
+  }
+  .buy {
+    position: relative;
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+    padding: 0.55rem 1.6rem;
+    background: var(--rose);
+    color: var(--on-tag);
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    box-shadow: 0 1px 1px rgb(20 20 20 / 0.1), 0 6px 14px -6px rgb(122 31 61 / 0.55);
+    transition: background-color 0.25s var(--ease-out), translate 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out);
+  }
+  .buy::before, .buy::after {
+    content: '';
+    position: absolute;
+    top: 0.4rem; bottom: 0.4rem;
+    border-left: 1.5px dashed color-mix(in srgb, var(--on-tag) 60%, transparent);
+  }
+  .buy::before { left: 0.5rem; }
+  .buy::after { right: 0.5rem; }
+  .buy:hover { background: var(--rose-deep); translate: 0 -2px; box-shadow: 0 2px 2px rgb(20 20 20 / 0.1), 0 10px 18px -8px rgb(122 31 61 / 0.6); }
+  .buy:active { translate: 0 0; }
+
+  /* Not buyable yet (no Payment Link) or sold: the same stitched label, as an outline. */
+  .buy-off {
+    background: transparent;
+    color: var(--rose);
+    box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--rose) 70%, transparent);
+    font-weight: 500;
+    font-style: italic;
+    cursor: default;
+  }
+  .buy-off::before, .buy-off::after { border-left-color: color-mix(in srgb, var(--rose) 45%, transparent); }
+  .buy-off:hover { background: transparent; translate: none; box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--rose) 70%, transparent); }
+  .buy-sold { font-style: normal; font-weight: 600; letter-spacing: 0.06em; }
+  .is-sold .bag-photo :global(img) { filter: grayscale(0.65) contrast(0.92); opacity: 0.72; }
+
+  .is-feature { grid-template-rows: auto; }
+</style>

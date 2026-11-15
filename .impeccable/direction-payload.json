@@ -1,0 +1,125 @@
+{
+  "title": "Choose Thelia's look",
+  "question": "Recommended: The Woven Label (marked IMPECCABLE'S PICK), because it grows straight out of her real label and swing tag. The Zine is the bold alternative the roll dealt. Pick one, or re-roll.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "Thelia Zine, Issue 01",
+      "kicker": "THE ROLL",
+      "lineage": "self-published riso fashion zines and lookbooks",
+      "thesis": "The shop as a hand-made fashion zine: every bag is a 'look' in Issue 01.",
+      "palette": ["#FF48B0", "#0078BF", "#FFE800", "#1D1D1B", "#FBFBF8"],
+      "materials": ["riso ink overprint on uncoated white stock", "staple-bound spreads", "full-bleed phone photos"],
+      "viewport": "A zine cover: her logo large at centre, cover lines (Issue 01, Handmade in Canada, 11 bags), a 'Shop the bags' line, and the first bag cut-outs peeking up from the bottom edge.",
+      "risk": "Loud and young next to her elegant script logo; riso misregistration reads cheap if overdone.",
+      "raised": [
+        {"from": "challenger-jcard", "raise": "Sold bags reprint a generation fainter with a printed SOLD line: state is part of the print."},
+        {"from": "challenger-specimen", "raise": "Hierarchy by scale alone: bag names huge, credit lines tiny, no extra weights or colours."},
+        {"from": "challenger-terminal", "raise": "Coming soon and Sold are printed words on the spread, never badge chips."},
+        {"from": "challenger-cyclorama", "raise": "Each spread owns one named ink (pink, blue, yellow), so the scroll reads as a printed sequence."}
+      ]
+    },
+    {
+      "id": "model-pick",
+      "label": "The Woven Label (recommended)",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "her own sewn-in ribbon label and black photo swing tag",
+      "thesis": "Every bag shown the way it leaves her hands: tagged, labelled and named.",
+      "palette": ["#F7F6F2", "#262624", "#141414", "#7A1F3D"],
+      "materials": ["woven ribbon labels", "matte black swing-tag card", "string and grommet"],
+      "viewport": "A full-screen black swing tag with her logo in white and 'Handmade in Canada'; below, the first bags each wearing a small woven name label with the price.",
+      "risk": "The most familiar of the set: label and tag motifs are common in handmade shops, and a costume if the string and tags are overdone."
+    },
+    {
+      "id": "challenger-flagship",
+      "label": "Fashion-house flagship",
+      "verdict": "competitive",
+      "lineage": "digital flagships of fashion houses",
+      "thesis": "One bag fills the screen at a time, framed by vast white space and one enormous word.",
+      "palette": ["#FFFFFF", "#111111", "#8B1E3F"],
+      "materials": ["full-bleed photography", "matte negative space", "hairline nav"],
+      "viewport": "A single bag full-bleed, a small script logo in a hairline nav, and 'Thelia' set enormous and low.",
+      "case": "Holds product clarity (the bags are huge); loses audience fit, since cold luxury undersells $60 minis made by a student.",
+      "risk": "Full-bleed exposes phone-photo quality; can feel cold next to chunky handmade texture.",
+      "hero": "https://impeccable.style/worlds/cards/luxury-fashion-flagship-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/luxury-fashion-flagship.webp"
+    },
+    {
+      "id": "challenger-rows",
+      "label": "Row by Row",
+      "verdict": "competitive",
+      "lineage": "coil-built forms, translated to crochet rows",
+      "thesis": "The page builds up in rows like a bag does: each section is a stitched course in a bag's colours.",
+      "palette": ["#2E5FA8", "#F2D64B", "#D9466E", "#2F6B4F", "#FFFFFF"],
+      "materials": ["chunky t-shirt-yarn bands", "stitch seams as dividers"],
+      "viewport": "Her logo on the top band, then colour courses stacking up the screen, each course one bag with its name and price.",
+      "case": "Holds product clarity (it shows how the bags are made); weaker audience pull than her own tag language.",
+      "risk": "Stripes can read as a flag or candy pattern without strict restraint.",
+      "hero": "https://impeccable.style/worlds/cards/clay-ceramics-fracture-coiled-earth-tower-hero.webp"
+    },
+    {
+      "id": "challenger-jcard",
+      "label": "Hand-drawn j-card",
+      "verdict": "declined",
+      "lineage": "photocopied cassette j-cards",
+      "thesis": "The shop as a photocopied, hand-inked cassette sleeve.",
+      "palette": ["#BDBDB8", "#F2F1EC", "#1A1A1A"],
+      "materials": ["photocopy grain", "hand-inked blackletter"],
+      "viewport": "A folded card unfolding panel by panel.",
+      "case": "Fuses poorly: the audience doesn't shop handbags through lo-fi tape culture.",
+      "risk": "Grimy where the bags are bright.",
+      "kept": "State as print generations (sold bags print fainter)."
+    },
+    {
+      "id": "challenger-specimen",
+      "label": "Type specimen",
+      "verdict": "declined",
+      "lineage": "variable font specimens",
+      "thesis": "Letterforms carry the page.",
+      "palette": ["#FAFAFA", "#111111", "#FF3B00"],
+      "materials": ["flat paper", "glyph grids"],
+      "viewport": "One giant glyph and a slider.",
+      "case": "Fuses poorly: the bags, not type, are the product.",
+      "risk": "Buries the bags.",
+      "kept": "Hierarchy by scale contrast alone."
+    },
+    {
+      "id": "challenger-terminal",
+      "label": "Phosphor terminal",
+      "verdict": "declined",
+      "lineage": "green-phosphor terminals",
+      "thesis": "The shop as a typed transcript.",
+      "palette": ["#0B0F0B", "#39FF6A"],
+      "materials": ["scanline glass", "bitmap mono"],
+      "viewport": "A blinking cursor listing bags.",
+      "case": "Fuses poorly: wrong world for colourful handmade bags.",
+      "risk": "Hides colour, the bags' main appeal.",
+      "kept": "States print themselves as words, not chips."
+    },
+    {
+      "id": "challenger-cyclorama",
+      "label": "Cyclorama dawn",
+      "verdict": "declined",
+      "lineage": "theatre lighting cycloramas",
+      "thesis": "The page moves from night to day like stage light.",
+      "palette": ["#05060A", "#1E3FA0", "#E7779B", "#FFFFFF"],
+      "materials": ["light bands", "stencil caps"],
+      "viewport": "A black horizon warming to day.",
+      "case": "Fuses poorly: theatrical, with no tie to crochet or campus.",
+      "risk": "Atmosphere over product.",
+      "kept": "Discrete named phases through the scroll."
+    }
+  ],
+  "reroll": {"registers": ["safer", "bolder"]},
+  "buildPath": {"value": "code", "toggle": false},
+  "canon": true,
+  "canonCard": {
+    "label": "The category standard",
+    "thesis": "A clean boutique store theme, executed impeccably.",
+    "palette": ["#FFFFFF", "#1A1A1A", "#C8A27A"],
+    "materials": ["clean product grid", "studio cut-outs on white"],
+    "viewport": "Logo and nav, a banner photo with 'Welcome to Thelia', then a tidy grid of bags with prices.",
+    "risk": "Looks like every Shopify theme, by design."
+  },
+  "steer": true
+}

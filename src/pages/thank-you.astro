@@ -1,0 +1,52 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base title="Thank you | Thelia" description="Thank you for your Thelia order.">
+  <Header />
+  <main class="thanks">
+    <div class="hang">
+    <svg class="note-string" viewBox="0 0 40 100" preserveAspectRatio="none" aria-hidden="true"><path d="M20 0 V100" /></svg>
+    <div class="note on-tag">
+      <svg class="note-mark" aria-hidden="true"><use href="#logo-mark" /></svg>
+      <h1>Thank you for your order</h1>
+      <p>Your payment went through, and a receipt is on its way to your email.</p>
+      <p>Your bag will be packed by hand and shipped to the address you gave at checkout.</p>
+      <a class="woven" href={base}>Back to Thelia</a>
+    </div>
+    </div>
+  </main>
+  <Footer />
+</Base>
+
+<style>
+  .thanks {
+    min-height: 72svh;
+    display: grid;
+    place-items: start center;
+    padding: 0 var(--gutter) clamp(3rem, 8vw, 6rem);
+  }
+  .hang { display: grid; justify-items: center; width: min(100%, 30rem); filter: drop-shadow(0 22px 26px rgb(20 20 20 / 0.22)); }
+  .note-string { position: relative; z-index: 2; width: 40px; height: 4rem; overflow: visible; }
+  .note-string path { stroke: var(--string); stroke-width: 2.4; fill: none; vector-effect: non-scaling-stroke; }
+  .note {
+    width: 100%;
+    margin-top: -1.55rem;
+    -webkit-mask: radial-gradient(circle at 50% 1.55rem, transparent 0.42rem, #000 0.47rem);
+    mask: radial-gradient(circle at 50% 1.55rem, transparent 0.42rem, #000 0.47rem);
+    background: var(--tag);
+    color: var(--on-tag);
+    border-radius: 12px;
+    padding: 3.2rem clamp(1.5rem, 5vw, 2.75rem) 2.25rem;
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    gap: 0.9rem;
+  }
+  .note-mark { width: 3.4rem; height: 3.8rem; color: var(--on-tag); }
+  h1 { font-size: clamp(1.9rem, 5vw, 2.5rem); }
+  p { color: var(--on-tag-soft); max-width: 32ch; }
+  .woven { margin-top: 0.75rem; text-decoration: none; font-size: 1.05rem; }
+</style>

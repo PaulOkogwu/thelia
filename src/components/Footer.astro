@@ -1,0 +1,64 @@
+---
+const base = import.meta.env.BASE_URL;
+const year = new Date().getFullYear();
+---
+<footer class="site-footer on-tag">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <svg class="footer-logo" role="img" aria-label="Thelia"><use href="#logo-full" /></svg>
+      <p class="footer-made">Handmade in Canada</p>
+    </div>
+    <nav aria-label="Footer">
+      <ul>
+        <li><a href={`${base}#shop`}>Shop the bags</a></li>
+        <li><a href={`${base}#story`}>Our story</a></li>
+        <li><a href={`${base}#catalogue`}>Catalogue</a></li>
+      </ul>
+    </nav>
+    <div class="footer-info">
+      <h2>Shipping</h2>
+      <p>Every bag ships to you. Enter your address at checkout, where shipping is added before you pay.</p>
+    </div>
+  </div>
+  <div class="wrap footer-base">
+    <p>&copy; {year} Thelia</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--tag);
+    color: var(--on-tag);
+    padding-block: clamp(3.5rem, 8vw, 6rem) 2rem;
+  }
+  .footer-grid {
+    display: grid;
+    gap: 2.5rem;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 760px) {
+    .footer-grid { grid-template-columns: 1.3fr 1fr 1.2fr; align-items: start; }
+  }
+  .footer-logo { width: 11rem; height: 8.3rem; color: var(--on-tag); }
+  .footer-made { margin-top: 0.5rem; color: var(--on-tag-soft); font-size: 0.95rem; }
+  ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.75rem; }
+  nav a { text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  .footer-info h2 { font-size: 1.35rem; margin-bottom: 0.6rem; }
+  .footer-info p { color: var(--on-tag-soft); max-width: 36ch; font-size: 0.97rem; }
+  .footer-base {
+    margin-top: 3.5rem;
+    padding-top: 1.25rem;
+    color: var(--on-tag-soft);
+    font-size: 0.85rem;
+    position: relative;
+  }
+  .footer-base::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 1.5px;
+    background: var(--stitch);
+    color: color-mix(in srgb, var(--on-tag) 30%, transparent);
+  }
+</style>

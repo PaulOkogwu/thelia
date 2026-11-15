@@ -1,0 +1,380 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-15T01:03:43+00:00",
+  "title": "Design System: Thelia",
+  "extensions": {
+    "colorMeta": {
+      "label": {
+        "role": "neutral",
+        "displayName": "Optic Label White",
+        "canonical": "#fafaf8",
+        "tonalRamp": [
+          "oklch(15% 0.003 106.4)",
+          "oklch(26% 0.003 106.4)",
+          "oklch(38% 0.003 106.4)",
+          "oklch(50% 0.003 106.4)",
+          "oklch(62% 0.003 106.4)",
+          "oklch(74% 0.003 106.4)",
+          "oklch(85% 0.003 106.4)",
+          "oklch(95% 0.003 106.4)"
+        ]
+      },
+      "label-edge": {
+        "role": "neutral",
+        "displayName": "Label Fold",
+        "canonical": "#e7e5df",
+        "tonalRamp": [
+          "oklch(15% 0.008 91.5)",
+          "oklch(26% 0.008 91.5)",
+          "oklch(38% 0.008 91.5)",
+          "oklch(50% 0.008 91.5)",
+          "oklch(62% 0.008 91.5)",
+          "oklch(74% 0.008 91.5)",
+          "oklch(85% 0.008 91.5)",
+          "oklch(95% 0.008 91.5)"
+        ]
+      },
+      "tag": {
+        "role": "neutral",
+        "displayName": "Swing-Tag Black",
+        "canonical": "#141414",
+        "tonalRamp": [
+          "oklch(15% 0.000 89.9)",
+          "oklch(26% 0.000 89.9)",
+          "oklch(38% 0.000 89.9)",
+          "oklch(50% 0.000 89.9)",
+          "oklch(62% 0.000 89.9)",
+          "oklch(74% 0.000 89.9)",
+          "oklch(85% 0.000 89.9)",
+          "oklch(95% 0.000 89.9)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Charcoal Ink",
+        "canonical": "#262624",
+        "tonalRamp": [
+          "oklch(15% 0.004 106.6)",
+          "oklch(26% 0.004 106.6)",
+          "oklch(38% 0.004 106.6)",
+          "oklch(50% 0.004 106.6)",
+          "oklch(62% 0.004 106.6)",
+          "oklch(74% 0.004 106.6)",
+          "oklch(85% 0.004 106.6)",
+          "oklch(95% 0.004 106.6)"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Soft Ink",
+        "canonical": "#55534f",
+        "tonalRamp": [
+          "oklch(15% 0.007 84.6)",
+          "oklch(26% 0.007 84.6)",
+          "oklch(38% 0.007 84.6)",
+          "oklch(50% 0.007 84.6)",
+          "oklch(62% 0.007 84.6)",
+          "oklch(74% 0.007 84.6)",
+          "oklch(85% 0.007 84.6)",
+          "oklch(95% 0.007 84.6)"
+        ]
+      },
+      "on-tag": {
+        "role": "neutral",
+        "displayName": "Tag Cream",
+        "canonical": "#f3f1ec",
+        "tonalRamp": [
+          "oklch(15% 0.007 88.6)",
+          "oklch(26% 0.007 88.6)",
+          "oklch(38% 0.007 88.6)",
+          "oklch(50% 0.007 88.6)",
+          "oklch(62% 0.007 88.6)",
+          "oklch(74% 0.007 88.6)",
+          "oklch(85% 0.007 88.6)",
+          "oklch(95% 0.007 88.6)"
+        ]
+      },
+      "on-tag-soft": {
+        "role": "neutral",
+        "displayName": "Tag Grey",
+        "canonical": "#b9b6ae",
+        "tonalRamp": [
+          "oklch(15% 0.012 89.7)",
+          "oklch(26% 0.012 89.7)",
+          "oklch(38% 0.012 89.7)",
+          "oklch(50% 0.012 89.7)",
+          "oklch(62% 0.012 89.7)",
+          "oklch(74% 0.012 89.7)",
+          "oklch(85% 0.012 89.7)",
+          "oklch(95% 0.012 89.7)"
+        ]
+      },
+      "rose": {
+        "role": "primary",
+        "displayName": "Rose Thread",
+        "canonical": "#7a1f3d",
+        "tonalRamp": [
+          "oklch(15% 0.127 5.2)",
+          "oklch(26% 0.127 5.2)",
+          "oklch(38% 0.127 5.2)",
+          "oklch(50% 0.127 5.2)",
+          "oklch(62% 0.127 5.2)",
+          "oklch(74% 0.127 5.2)",
+          "oklch(85% 0.127 5.2)",
+          "oklch(95% 0.127 5.2)"
+        ]
+      },
+      "rose-deep": {
+        "role": "primary",
+        "displayName": "Deep Rose",
+        "canonical": "#5e1730",
+        "tonalRamp": [
+          "oklch(15% 0.104 3.4)",
+          "oklch(26% 0.104 3.4)",
+          "oklch(38% 0.104 3.4)",
+          "oklch(50% 0.104 3.4)",
+          "oklch(62% 0.104 3.4)",
+          "oklch(74% 0.104 3.4)",
+          "oklch(85% 0.104 3.4)",
+          "oklch(95% 0.104 3.4)"
+        ]
+      },
+      "string": {
+        "role": "secondary",
+        "displayName": "Tag String Pink",
+        "canonical": "#e9b8c6",
+        "tonalRamp": [
+          "oklch(15% 0.059 359.5)",
+          "oklch(26% 0.059 359.5)",
+          "oklch(38% 0.059 359.5)",
+          "oklch(50% 0.059 359.5)",
+          "oklch(62% 0.059 359.5)",
+          "oklch(74% 0.059 359.5)",
+          "oklch(85% 0.059 359.5)",
+          "oklch(95% 0.059 359.5)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Section headings; the featured bag name."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Bag group headings and value names."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Bag names on woven labels and woven buttons."
+      },
+      "price": {
+        "displayName": "Price",
+        "purpose": "Every price, lining numerals."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Her first-person running copy, 56-62ch."
+      },
+      "body-lead": {
+        "displayName": "Body Lead",
+        "purpose": "First paragraph of story and maker blocks."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Buy and other Figtree controls."
+      }
+    },
+    "shadows": [
+      {
+        "name": "hanging-tag",
+        "value": "drop-shadow(0 22px 28px rgb(20 20 20 / 0.22)) drop-shadow(0 4px 6px rgb(20 20 20 / 0.12))",
+        "purpose": "filter on the swing tag rig and thank-you note; follows the punched hole and string."
+      },
+      {
+        "name": "sewn-label",
+        "value": "0 1px 1px rgb(20 20 20 / 0.08), 0 4px 10px -4px rgb(20 20 20 / 0.18)",
+        "purpose": "Every woven label."
+      },
+      {
+        "name": "buy-label",
+        "value": "0 1px 1px rgb(20 20 20 / 0.1), 0 6px 14px -6px rgb(122 31 61 / 0.55)",
+        "purpose": "Buy at rest."
+      },
+      {
+        "name": "buy-label-hover",
+        "value": "0 2px 2px rgb(20 20 20 / 0.1), 0 10px 18px -8px rgb(122 31 61 / 0.6)",
+        "purpose": "Buy on hover, with a 2px rise."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The shared curve for every transition."
+      },
+      {
+        "name": "control",
+        "value": "0.25s-0.35s",
+        "purpose": "Buy, woven button lift, nav underline, header hairline."
+      },
+      {
+        "name": "label-settle",
+        "value": "rotate 0.5s",
+        "purpose": "Bag name label straightens from -1.2deg on card hover."
+      },
+      {
+        "name": "photo-zoom",
+        "value": "transform 0.9s, scale 1.035",
+        "purpose": "Bag photo on card hover (catalogue 0.8s, 1.03)."
+      },
+      {
+        "name": "story-expand",
+        "value": "grid-template-rows 0.7s",
+        "purpose": "Read my story expands in place."
+      },
+      {
+        "name": "tag-swing",
+        "value": "damped pendulum: velocity += (target - angle) * 0.02; velocity *= 0.94",
+        "purpose": "Swing tag responds to scroll speed and mouse x; static under reduced motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "viewer-compact",
+        "value": "640px"
+      },
+      {
+        "name": "grid",
+        "value": "760px"
+      },
+      {
+        "name": "split",
+        "value": "900px"
+      },
+      {
+        "name": "feature-detail",
+        "value": "1200px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Woven Label",
+      "kind": "custom",
+      "refersTo": "woven-label",
+      "description": "Bag names and light buttons on black: a white ribbon with folded, stitched ends.",
+      "html": "<a class=\"ds-woven\" href=\"#\">Shop the bags</a>",
+      "css": ".ds-woven { position: relative; display: inline-flex; align-items: center; padding: 0.5em 1.45em; background: linear-gradient(90deg, var(--label-edge,#e7e5df) 0 0.3em, color-mix(in srgb, var(--ink,#262624) 18%, var(--label-edge,#e7e5df)) 0.3em 0.36em, transparent 0.36em, transparent calc(100% - 0.36em), color-mix(in srgb, var(--ink,#262624) 18%, var(--label-edge,#e7e5df)) calc(100% - 0.36em) calc(100% - 0.3em), var(--label-edge,#e7e5df) calc(100% - 0.3em)), #fff; color: var(--ink,#262624); font-family: 'Gloock','Times New Roman',serif; font-size: 1.05rem; line-height: 1.1; text-decoration: none; box-shadow: 0 1px 1px rgb(20 20 20 / 0.08), 0 4px 10px -4px rgb(20 20 20 / 0.18); transition: translate 0.3s cubic-bezier(0.16,1,0.3,1); } .ds-woven::before, .ds-woven::after { content: ''; position: absolute; top: 0.32em; bottom: 0.32em; border-left: 1.5px dashed color-mix(in srgb, var(--ink,#262624) 55%, transparent); } .ds-woven::before { left: 0.62em; } .ds-woven::after { right: 0.62em; } .ds-woven:hover { translate: 0 -2px; } .ds-woven:focus-visible { outline: 2px solid var(--rose,#7a1f3d); outline-offset: 3px; }"
+    },
+    {
+      "name": "Buy Button",
+      "kind": "button",
+      "refersTo": "button-buy",
+      "description": "The only rose element: a stitched label that buys the bag.",
+      "html": "<a class=\"ds-buy\" href=\"#\">Buy</a>",
+      "css": ".ds-buy { position: relative; display: inline-flex; align-items: center; min-height: 2.75rem; padding: 0.55rem 1.6rem; background: var(--rose,#7a1f3d); color: var(--on-tag,#f3f1ec); font-family: 'Figtree Variable',system-ui,sans-serif; font-weight: 600; font-size: 0.95rem; letter-spacing: 0.02em; text-decoration: none; box-shadow: 0 1px 1px rgb(20 20 20 / 0.1), 0 6px 14px -6px rgb(122 31 61 / 0.55); transition: background-color 0.25s cubic-bezier(0.16,1,0.3,1), translate 0.25s cubic-bezier(0.16,1,0.3,1), box-shadow 0.25s cubic-bezier(0.16,1,0.3,1); } .ds-buy::before, .ds-buy::after { content: ''; position: absolute; top: 0.4rem; bottom: 0.4rem; border-left: 1.5px dashed color-mix(in srgb, var(--on-tag,#f3f1ec) 60%, transparent); } .ds-buy::before { left: 0.5rem; } .ds-buy::after { right: 0.5rem; } .ds-buy:hover { background: var(--rose-deep,#5e1730); translate: 0 -2px; box-shadow: 0 2px 2px rgb(20 20 20 / 0.1), 0 10px 18px -8px rgb(122 31 61 / 0.6); } .ds-buy:active { translate: 0 0; } .ds-buy:focus-visible { outline: 2px solid var(--rose,#7a1f3d); outline-offset: 3px; }"
+    },
+    {
+      "name": "Buy Button (Coming soon)",
+      "kind": "button",
+      "refersTo": "button-buy-off",
+      "description": "Not yet buyable: the same stitched label as a rose outline.",
+      "html": "<span class=\"ds-buy-off\" aria-disabled=\"true\">Coming soon</span>",
+      "css": ".ds-buy-off { position: relative; display: inline-flex; align-items: center; min-height: 2.75rem; padding: 0.55rem 1.6rem; color: var(--rose,#7a1f3d); font-family: 'Figtree Variable',system-ui,sans-serif; font-weight: 500; font-style: italic; font-size: 0.95rem; letter-spacing: 0.02em; box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--rose,#7a1f3d) 70%, transparent); cursor: default; } .ds-buy-off::before, .ds-buy-off::after { content: ''; position: absolute; top: 0.4rem; bottom: 0.4rem; border-left: 1.5px dashed color-mix(in srgb, var(--rose,#7a1f3d) 45%, transparent); } .ds-buy-off::before { left: 0.5rem; } .ds-buy-off::after { right: 0.5rem; }"
+    },
+    {
+      "name": "Bag Card",
+      "kind": "card",
+      "refersTo": "bag-photo",
+      "description": "Photo, woven name label overlapping its edge, price and Buy on one line.",
+      "html": "<article class=\"ds-bag\"><div class=\"ds-bag-photo\"></div><div class=\"ds-bag-body\"><h3 class=\"ds-bag-name\">The Odette Bag</h3><div class=\"ds-bag-meta\"><p class=\"ds-bag-price\">$110</p><span class=\"ds-bag-buy\">Buy</span></div></div></article>",
+      "css": ".ds-bag { width: 16rem; font-family: 'Figtree Variable',system-ui,sans-serif; } .ds-bag-photo { aspect-ratio: 4/5; border-radius: 4px; background: linear-gradient(160deg,#6b3b2a,#3a2219); } .ds-bag-body { display: flex; flex-direction: column; align-items: flex-start; gap: 0.75rem; } .ds-bag-name { position: relative; margin: -1.35em 0 0 0.85rem; padding: 0.5em 1.45em; font: 400 1.15rem/1.1 'Gloock','Times New Roman',serif; color: var(--ink,#262624); background: linear-gradient(90deg, var(--label-edge,#e7e5df) 0 0.3em, color-mix(in srgb, var(--ink,#262624) 18%, var(--label-edge,#e7e5df)) 0.3em 0.36em, transparent 0.36em, transparent calc(100% - 0.36em), color-mix(in srgb, var(--ink,#262624) 18%, var(--label-edge,#e7e5df)) calc(100% - 0.36em) calc(100% - 0.3em), var(--label-edge,#e7e5df) calc(100% - 0.3em)), #fff; box-shadow: 0 1px 1px rgb(20 20 20 / 0.08), 0 4px 10px -4px rgb(20 20 20 / 0.18); rotate: -1.2deg; transition: rotate 0.5s cubic-bezier(0.16,1,0.3,1); } .ds-bag:hover .ds-bag-name { rotate: 0deg; } .ds-bag-meta { display: flex; align-items: center; width: 100%; gap: 1rem; } .ds-bag-price { margin: 0; font: 400 1.5rem/1 'Gloock','Times New Roman',serif; font-variant-numeric: lining-nums; color: var(--ink,#262624); } .ds-bag-buy { margin-left: auto; display: inline-flex; align-items: center; min-height: 2.75rem; padding: 0.55rem 1.6rem; background: var(--rose,#7a1f3d); color: var(--on-tag,#f3f1ec); font-weight: 600; font-size: 0.95rem; }"
+    },
+    {
+      "name": "Swing Tag",
+      "kind": "custom",
+      "refersTo": "swing-tag",
+      "description": "The black tag hanging on its pink string: opening and thank-you note.",
+      "html": "<div class=\"ds-tag-rig\"><span class=\"ds-tag-string\"></span><div class=\"ds-tag\"><h2>Welcome to Thelia</h2><p>At Thelia every piece is handmade with love and attention to detail.</p><p class=\"ds-tag-foot\">Handmade in Canada</p></div></div>",
+      "css": ".ds-tag-rig { display: grid; justify-items: center; width: 18rem; filter: drop-shadow(0 22px 28px rgb(20 20 20 / 0.22)) drop-shadow(0 4px 6px rgb(20 20 20 / 0.12)); } .ds-tag-string { position: relative; z-index: 2; width: 2.4px; height: 3rem; background: var(--string,#e9b8c6); } .ds-tag { width: 100%; margin-top: -1.55rem; padding: 3.1rem 1.5rem 1.4rem; display: grid; justify-items: center; gap: 0.7rem; text-align: center; background: var(--tag,#141414); color: var(--on-tag,#f3f1ec); border-radius: 12px; -webkit-mask: radial-gradient(circle at 50% 1.55rem, transparent 0.42rem, #000 0.47rem); mask: radial-gradient(circle at 50% 1.55rem, transparent 0.42rem, #000 0.47rem); font-family: 'Figtree Variable',system-ui,sans-serif; } .ds-tag h2 { margin: 0; font: 400 1.8rem/1.08 'Gloock','Times New Roman',serif; letter-spacing: -0.01em; } .ds-tag p { margin: 0; color: var(--on-tag-soft,#b9b6ae); font-size: 0.94rem; line-height: 1.45; max-width: 26ch; } .ds-tag .ds-tag-foot { width: 100%; margin-top: 0.5rem; padding-top: 0.75rem; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; background: repeating-linear-gradient(90deg, rgb(243 241 236 / 0.28) 0 7px, transparent 7px 12px) top / 100% 1.5px no-repeat; max-width: none; }"
+    },
+    {
+      "name": "Header Navigation",
+      "kind": "nav",
+      "refersTo": null,
+      "description": "Sticky blurred white header; links underline left to right on hover.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\">Shop</a><a href=\"#\">Story</a><a href=\"#\">Catalogue</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 2.25rem; padding: 1.4rem 1.5rem; background: color-mix(in srgb, var(--label,#fafaf8) 92%, transparent); backdrop-filter: saturate(1.4) blur(10px); border-bottom: 1px solid var(--label-edge,#e7e5df); font-family: 'Figtree Variable',system-ui,sans-serif; } .ds-nav a { color: var(--ink,#262624); font-size: 0.95rem; font-weight: 500; text-decoration: none; padding-block: 0.4rem; background: linear-gradient(currentColor,currentColor) 0 100% / 0 1px no-repeat; transition: background-size 0.35s cubic-bezier(0.16,1,0.3,1); } .ds-nav a:hover { background-size: 100% 1px; } .ds-nav a:focus-visible { outline: 2px solid var(--rose,#7a1f3d); outline-offset: 3px; border-radius: 3px; }"
+    },
+    {
+      "name": "Stitch Rule",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Group heading over a stitch-dashed seam; the system's only divider.",
+      "html": "<div class=\"ds-group-head\"><h3>Clutches</h3></div>",
+      "css": ".ds-group-head { position: relative; padding-bottom: 0.7rem; } .ds-group-head h3 { margin: 0; font: 400 2rem/1.08 'Gloock','Times New Roman',serif; letter-spacing: -0.01em; color: var(--ink,#262624); } .ds-group-head::after { content: ''; position: absolute; inset: auto 0 0 0; height: 1.5px; background: repeating-linear-gradient(90deg, color-mix(in srgb, var(--ink,#262624) 35%, transparent) 0 7px, transparent 7px 12px); }"
+    },
+    {
+      "name": "Viewer Control",
+      "kind": "button",
+      "refersTo": "viewer-button",
+      "description": "Round ghost control in the full-screen photo viewer.",
+      "html": "<div class=\"ds-viewer-bg\"><button class=\"ds-viewer-btn\" aria-label=\"Close\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M6 6l12 12M18 6L6 18\"/></svg></button></div>",
+      "css": ".ds-viewer-bg { padding: 1.5rem; background: rgb(14 14 14 / 0.94); } .ds-viewer-btn { display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: 999px; border: 1px solid rgb(243 241 236 / 0.25); background: rgb(243 241 236 / 0.06); color: var(--on-tag,#f3f1ec); cursor: pointer; transition: background-color 0.2s; } .ds-viewer-btn:hover { background: rgb(243 241 236 / 0.16); } .ds-viewer-btn:focus-visible { outline: 2px solid var(--string,#e9b8c6); outline-offset: 3px; } .ds-viewer-btn svg { width: 1.3rem; height: 1.3rem; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Woven Label",
+    "overview": "Every bag is presented the way it leaves the maker's hands: hung from her black swing tag on a pink yarn string, named on her sewn-in white woven label, priced in plain figures. The system is built from those two physical objects and nothing else. Optic-white label ground and matte swing-tag black are the two fields; charcoal is the ink; one deep rose thread marks the act of buying. All other colour comes from the bags in the photographs.\n\nThe interface steps back so yarn colour and texture carry the page. Surfaces are flat paper and flat black; depth exists only where a real object would cast it (the hanging tag, the label sewn over a photo, the Buy label). Stitch-dashed rules divide sections the way a seam divides fabric. Motion is physical and slow: the tag swings as a damped pendulum, labels straighten on hover, photos ease in a few percent. Everything is static under reduced motion.\n\nIt rejects the boutique-theme banner-plus-grid and the cream-and-serif \"artisan\" default: the ground is optic white, not cream, and the serif is a heavy, high-contrast display cut used for names and headings only.",
+    "keyCharacteristics": [
+      "Two fields: label white (page) and tag black (opening tag, story band, footer, thank-you note).",
+      "Bag names sit on woven labels that overlap the photo's bottom edge, tilted slightly.",
+      "Rose appears only on Buy, its disabled and sold states, the focus ring and text selection.",
+      "Dividers are stitch-dashed (7px dash, 5px gap), never solid hairlines.",
+      "The string pink is the yarn the tags hang from; it is a material, not a second accent."
+    ],
+    "rules": [
+      {
+        "name": "The One Thread Rule",
+        "body": "Rose means \"buy\" (and keyboard focus). If an element is not a purchase control, a purchase state or a focus ring, it is not rose.",
+        "section": "colors"
+      },
+      {
+        "name": "The Bags Bring the Colour Rule",
+        "body": "No tints, gradients or coloured panels. Hue on the page comes from the photographs.",
+        "section": "colors"
+      },
+      {
+        "name": "The Serif Is Sewn Rule",
+        "body": "Gloock is for things that would be woven or printed on a label: headings, bag names, prices, value names. Interface controls other than labels (nav, Buy, captions) are Figtree.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tagline Exception",
+        "body": "Uppercase tracked text (0.78rem, 0.14em) appears once: \"Handmade in Canada\" at the foot of the swing tag, because it is printed that way on her real tags. It is not a reusable eyebrow style.",
+        "section": "typography"
+      },
+      {
+        "name": "The Real Objects Rule",
+        "body": "Only tags and labels cast shadows. Photos, sections, cards and the header stay flat; the header separates with a 1px label-fold hairline after scroll.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** put every bag name on a woven label and every price in Gloock with lining numerals beside its Buy label.",
+      "**Do** keep rose to Buy, its outline states, focus and selection.",
+      "**Do** separate sections and groups with stitch-dashed rules (1.5px, 7px dash, 5px gap), not solid lines.",
+      "**Do** alternate the white field with full-bleed tag-black bands for story and footer.",
+      "**Do** use the pink string colour only as the yarn something hangs from, or as the focus ring on black.",
+      "**Do** keep motion physical (swing, settle, straighten) on the shared ease-out curve (cubic-bezier(0.16, 1, 0.3, 1)) and make it static under reduced motion."
+    ],
+    "donts": [
+      "**Don't** introduce cream grounds, tinted panels or coloured section backgrounds; the colour belongs to the bags.",
+      "**Don't** add shadows to photos, sections or containers; only tags and labels cast them, and never as hard offset blocks.",
+      "**Don't** round the woven labels or the Buy label; ribbons have square, folded ends.",
+      "**Don't** reuse the uppercase tracked tagline style as a section eyebrow or kicker.",
+      "**Don't** set controls or running copy in Gloock, or headings in Figtree."
+    ]
+  }
+}

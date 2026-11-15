@@ -1,0 +1,110 @@
+@import '@fontsource/gloock/400.css';
+@import '@fontsource-variable/figtree';
+
+:root {
+  --label: #fafaf8;        /* woven-label white: the page ground */
+  --label-edge: #e7e5df;   /* label fold and hairlines */
+  --tag: #141414;          /* swing-tag black */
+  --tag-raised: #1d1d1c;
+  --ink: #262624;          /* logo charcoal */
+  --ink-soft: #55534f;
+  --on-tag: #f3f1ec;
+  --on-tag-soft: #b9b6ae;
+  --rose: #7a1f3d;         /* the one thread colour: Buy */
+  --rose-deep: #5e1730;
+  --string: #e9b8c6;       /* the pink yarn her tags hang from */
+
+  --display: 'Gloock', 'Times New Roman', serif;
+  --body: 'Figtree Variable', system-ui, sans-serif;
+
+  --gutter: clamp(1rem, 4vw, 3rem);
+  --max: 78rem;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --stitch: repeating-linear-gradient(90deg, currentColor 0 7px, transparent 7px 12px);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  -webkit-text-size-adjust: 100%;
+  scrollbar-color: var(--ink-soft) var(--label);
+}
+
+body {
+  margin: 0;
+  background: var(--label);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection { background: var(--rose); color: var(--on-tag); }
+
+img { display: block; max-width: 100%; height: auto; }
+
+h1, h2, h3 {
+  font-family: var(--display);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+  margin: 0;
+}
+
+p { margin: 0; text-wrap: pretty; }
+
+a { color: inherit; text-underline-offset: 0.22em; text-decoration-thickness: 1px; }
+
+:focus-visible {
+  outline: 2px solid var(--rose);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+.on-tag :focus-visible { outline-color: var(--string); }
+
+.wrap { width: min(100% - 2 * var(--gutter), var(--max)); margin-inline: auto; }
+
+.visually-hidden {
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* A woven label: white ribbon, folded ends sewn down with a line of stitches. */
+.woven {
+  --w-bg: #fff;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.5em 1.45em;
+  /* folded-under ends: a darker tuck at each edge with a crease line */
+  background:
+    linear-gradient(90deg,
+      var(--label-edge) 0 0.3em, color-mix(in srgb, var(--ink) 18%, var(--label-edge)) 0.3em 0.36em, transparent 0.36em,
+      transparent calc(100% - 0.36em), color-mix(in srgb, var(--ink) 18%, var(--label-edge)) calc(100% - 0.36em) calc(100% - 0.3em), var(--label-edge) calc(100% - 0.3em)),
+    var(--w-bg);
+  color: var(--ink);
+  font-family: var(--display);
+  line-height: 1.1;
+  box-shadow: 0 1px 1px rgb(20 20 20 / 0.08), 0 4px 10px -4px rgb(20 20 20 / 0.18);
+}
+.woven::before, .woven::after {
+  content: '';
+  position: absolute;
+  top: 0.32em; bottom: 0.32em;
+  width: 0;
+  border-left: 1.5px dashed color-mix(in srgb, var(--ink) 55%, transparent);
+}
+.woven::before { left: 0.62em; }
+.woven::after { right: 0.62em; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
