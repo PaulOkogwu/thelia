@@ -1,6 +1,6 @@
 # Thelia
 
-One-page shop for Thelia, handmade crochet bags. Astro static site, hosted on Cloudflare Pages, checkout through Stripe Payment Links.
+One-page shop for Thelia, handmade crochet bags. Astro static site, previewed on GitHub Pages, checkout through Stripe Payment Links.
 
 ## Run it
 
@@ -20,19 +20,15 @@ All shop data is in `src/data/bags.ts`:
 
 Her story, values and maker text: `src/data/content.ts` (her words, verbatim). Catalogue photos: `src/data/catalogue.ts`.
 
-## Deploy (Cloudflare Pages)
+## Deploy
 
-Connect this GitHub repo in Cloudflare → Workers & Pages → Create → Pages → Connect to Git.
+**Preview (now):** GitHub Pages at https://paulokogwu.github.io/thelia/. `.github/workflows/deploy.yml` builds and deploys on every push to `main`. The site lives under the `/thelia` base path (`astro.config.mjs`).
 
-- Build command: `npm run build`
-- Output directory: `dist`
-- Environment variable `SITE`: the public URL (e.g. `https://thelia.pages.dev`, later her own domain)
-
-Every push to `main` deploys.
+**Her own domain (later):** build with `SITE=https://<domain> BASE=/`, on Cloudflare Pages (connect this repo: build `npm run build`, output `dist`, set those two variables) or any static host.
 
 ## Payments
 
-Each Payment Link lives in the owner's own Stripe account and sends buyers to `/thank-you/` after paying. Stripe collects the shipping address and phone, and emails her each order. Her setup guide is in Paul's vault: `05 Projects/thelia/stripe-setup.md`.
+Each Payment Link lives in the owner's own Stripe account and sends buyers to the thank-you page after paying (currently `https://paulokogwu.github.io/thelia/thank-you/`). Stripe collects the shipping address and phone, and emails her each order. Her setup guide is in Paul's vault: `05 Projects/thelia/stripe-setup.md`.
 
 ## Sources
 
